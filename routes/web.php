@@ -15,16 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("home");
 
 Route::get('/post', function () {
-    return view('posts.index');
+    return view('pages.index');
 });
 
-Route::get('/foo/bar', function () {
-    return "Test";
-});
+Route::get('/register', function () {
+    return view('pages.register');
+})->name('register');
 
-Route::get('/users/{id}', function () {
-    return "this is user " .$id;
-});
+Route::get('/login', function () {
+    return view('pages.login');
+})->name('login');
