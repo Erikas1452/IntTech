@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 
 class LoginForm extends Component {
 
+  constructor(props)
+  {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   state={
     loginEmail:'',
     loginPassword:''
@@ -17,12 +23,35 @@ class LoginForm extends Component {
   }
 
   handleSubmit = (e) =>{
+
+    e.preventDefault();
+
+    const {loginEmail,loginPassword}=this.state;
     
+    const recipeUrl = 'http://91.211.247.110/api/user/create';
+    const postBody = {
+        email: loginEmail,
+        password: loginPassword
+    };
+    const requestMetadata = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postBody)
+    };
+
+    fetch(recipeUrl, requestMetadata)
+        .then(res => res.json())
+        .then(recipes => {
+            console.log(recipes);
+            // this.setState({ recipes });
+        });
   }
 
   render() {
     return (
-    <form>
+    <form type="submit" onSubmit={this.handleSubmit}>
       <div className="container">
         <h1>Login</h1>
         <p>Please fill in this form to login.</p>
@@ -35,9 +64,8 @@ class LoginForm extends Component {
         </div>
         <hr/>
         <div className="login-button-container">
-          <button type="submit" onSubmit={this.handleSubmit}>Login</button>
+          <button>Login</button>
         </div>
-        
       </div>
     </form>
     );

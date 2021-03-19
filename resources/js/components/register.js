@@ -12,23 +12,7 @@ class Registration extends Component {
   }
 
   async getUsers() {
-
-    fetch("https://cat-fact.herokuapp.com/facts", {
-      method: "GET",
-    })
-      .then(response => {
-        let json = response.json();
-        console.log(json);
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-      })
-      .catch(error => {
-        console.error(
-          "There has been a problem with your fetch operation:",
-          error
-        );
-      });
+    
   }
 
   render() {

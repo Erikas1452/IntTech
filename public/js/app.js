@@ -2013,16 +2013,12 @@ var LoginForm = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(LoginForm);
 
-  function LoginForm() {
+  function LoginForm(props) {
     var _this;
 
     _classCallCheck(this, LoginForm);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
+    _this = _super.call(this, props);
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       loginEmail: '',
@@ -2039,8 +2035,31 @@ var LoginForm = /*#__PURE__*/function (_Component) {
       console.log(value);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {});
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (e) {
+      e.preventDefault();
+      var _this$state = _this.state,
+          loginEmail = _this$state.loginEmail,
+          loginPassword = _this$state.loginPassword;
+      var recipeUrl = 'http://91.211.247.110/api/user/create';
+      var postBody = {
+        email: loginEmail,
+        password: loginPassword
+      };
+      var requestMetadata = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postBody)
+      };
+      fetch(recipeUrl, requestMetadata).then(function (res) {
+        return res.json();
+      }).then(function (recipes) {
+        console.log(recipes); // this.setState({ recipes });
+      });
+    });
 
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2048,6 +2067,8 @@ var LoginForm = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+        type: "submit",
+        onSubmit: this.handleSubmit,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "container",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
@@ -2084,8 +2105,6 @@ var LoginForm = /*#__PURE__*/function (_Component) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "login-button-container",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-              type: "submit",
-              onSubmit: this.handleSubmit,
               children: "Login"
             })
           })]
@@ -2182,20 +2201,6 @@ var Registration = /*#__PURE__*/function (_Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                fetch("https://cat-fact.herokuapp.com/facts", {
-                  method: "GET"
-                }).then(function (response) {
-                  var json = response.json();
-                  console.log(json);
-
-                  if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                  }
-                })["catch"](function (error) {
-                  console.error("There has been a problem with your fetch operation:", error);
-                });
-
-              case 1:
               case "end":
                 return _context.stop();
             }
