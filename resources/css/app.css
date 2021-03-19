@@ -45,3 +45,13 @@
 {
   text-align: center;
 }
+
+.login-box
+{
+  display: inline-grid;
+}
+
+.login-button-container
+{
+  text-align: center;
+}

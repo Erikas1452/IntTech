@@ -13,4 +13,5 @@ require('./bootstrap');
  */
 
 require('./components/index');
-require('./components/registration');
+require('./components/login');
+require('./components/register');

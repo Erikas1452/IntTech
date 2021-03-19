@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="content">
-    <div class="content">
-        <div id="axiostest" class="title m-b-md">
-        </div>
+    <div id="loginform" class="title m-b-md">
+        
     </div>
 </div>
+
 @endsection

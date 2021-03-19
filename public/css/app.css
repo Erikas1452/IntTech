@@ -46,6 +46,16 @@
 {
   text-align: center;
 }
+
+.login-box
+{
+  display: inline-grid;
+}
+
+.login-button-container
+{
+  text-align: center;
+}
 @charset "UTF-8";
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)

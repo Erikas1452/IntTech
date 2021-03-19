@@ -81,23 +81,6 @@
                 </div>
             </div>
         </div>
-
-        <?php
-            $host="127.0.0.1";
-            $port=3306;
-            $socket="";
-            $user="laravel";
-            $password="secret";
-            $dbname="laravel";
-
-            $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
-                or die ('Could not connect to the database server' . mysqli_connect_error());
-                
-            if($con) echo "<p>CONNECTED TO DATABASE</p>";
-            else echo "<p>FAILED TO CONNECT</p>";
-            //$con->close();
-        ?>
-
     </body>
     <script type="text/javascript" src="js/app.js"></script>
 </html>
