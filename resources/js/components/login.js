@@ -28,7 +28,7 @@ class LoginForm extends Component {
 
     const {loginEmail,loginPassword}=this.state;
     
-    const recipeUrl = 'http://91.211.247.110/api/user/create';
+    const recipeUrl = '/api/user/create';
     const postBody = {
         email: loginEmail,
         password: loginPassword

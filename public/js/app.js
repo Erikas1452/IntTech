@@ -2040,7 +2040,7 @@ var LoginForm = /*#__PURE__*/function (_Component) {
       var _this$state = _this.state,
           loginEmail = _this$state.loginEmail,
           loginPassword = _this$state.loginPassword;
-      var recipeUrl = 'http://91.211.247.110/api/user/create';
+      var recipeUrl = '/api/user/create';
       var postBody = {
         email: loginEmail,
         password: loginPassword
