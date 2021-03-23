@@ -8,9 +8,16 @@ use App\Mail\TestMail;
 
 class EmailController extends Controller
 {
-    function sendTestEmail()
+
+    function sendVerificationEmail($email,$verificationCode)
     {
-        Mail::to('jitih99223@gameqo.com')->send(new TestMail);
+        Mail::to($email)->send(new TestMail($email,$verificationCode));
+        return response("", 200);
+    }
+
+    function sendTestEmail($email)
+    {
+        Mail::to('jitih99223@gameqo.com')->send(new TestMail($email,"TEST CODE"));
         return response("", 200);
     }
 }

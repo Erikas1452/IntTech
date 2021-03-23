@@ -14,12 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Mail\TestMail;
-
-Route::get('/email',function ()
-{
-    Mail::to('erikastumanovas@gmail.com')->send(new TestMail);
-    return new TestMail();
-});
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');

@@ -18,10 +18,12 @@ class TestMail extends Mailable
      */
 
     public $code;
+    public $email;
 
-    public function __construct()
+    public function __construct($email,$verificationCode)
     {
-        $this->code = "FAKE-AuthorizationCode";
+        $this->email = $email;
+        $this->code = $verificationCode;
     }
 
     /**
