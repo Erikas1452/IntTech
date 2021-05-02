@@ -24,6 +24,7 @@ class TestMail extends Mailable
     {
         $this->email = $email;
         $this->code = $verificationCode;
+        $this->subject("Email confirmation");
     }
 
     /**

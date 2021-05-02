@@ -18,8 +18,6 @@ class LoginForm extends Component {
     const name = e.target.name;
     const value =  e.target.value;
     this.setState({[name]:value})
-    console.log(name);
-    console.log(value);
   }
 
   handleSubmit = (e) =>{
@@ -27,8 +25,8 @@ class LoginForm extends Component {
     e.preventDefault();
 
     const {loginEmail,loginPassword}=this.state;
-    
-    const recipeUrl = '/api/user/create';
+
+    const recipeUrl = '/api/user/login';
     const postBody = {
         email: loginEmail,
         password: loginPassword
@@ -60,7 +58,7 @@ class LoginForm extends Component {
           <label hmtlfor="loginEmail"><b>Email</b></label>
           <input type="email" placeholder="Enter Email" name="loginEmail" id="loginEmail" required onChange={this.handleChange}/>
           <label hmtlfor="loginPassword"><b>Password</b></label>
-          <input type="password" placeholder="Enter Pasword" name="loginPassword" id="loginPassword" required onChange={this.handleChange}/> 
+          <input type="password" placeholder="Enter Pasword" name="loginPassword" id="loginPassword" required onChange={this.handleChange}/>
         </div>
         <hr/>
         <div className="login-button-container">
@@ -73,6 +71,6 @@ class LoginForm extends Component {
 }
 
 export default LoginForm;
-if (document.getElementById('loginform')) {
-    ReactDOM.render(<LoginForm />, document.getElementById('loginform'));
+if (document.getElementById('login-form')) {
+    ReactDOM.render(<LoginForm />, document.getElementById('login-form'));
 }

@@ -1,9 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.notes')
 
 @section('content')
 <div class="content">
-    <div id="login-form" class="title m-b-md">
-
+    <div id="notes" class="title m-b-md">
     </div>
 </div>
 

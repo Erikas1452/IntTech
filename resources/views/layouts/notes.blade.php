@@ -9,13 +9,8 @@
     </head>
     <body>
         <div class="header">
-            <div class="header-logo">
-               <h2 onclick="window.location='{{ route("home") }}'">AppName</h2>
-            </div>
-
             <div class="header-buttons">
-                <button onclick="window.location='{{ route("login") }}'">Login</button>
-                <button onclick="window.location='{{ route("register") }}'">Register</button>
+                <button onclick="window.location='{{ route("home") }}'">Logout</button>
             </div>
 
         </div>

@@ -17,12 +17,8 @@ use App\Mail\TestMail;
 use Illuminate\Http\Request;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.login');
 })->name("home");
-
-Route::get('/post', function () {
-    return view('pages.index');
-});
 
 Route::get('/register', function () {
     return view('pages.register');
@@ -31,3 +27,7 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('pages.login');
 })->name('login');
+
+Route::get('/notes', function (){
+    return view('pages.notes');
+})->name('notes');

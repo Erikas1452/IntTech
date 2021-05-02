@@ -62,35 +62,33 @@
 /*=================== Small screens max 600px ======================= ??? needed?*/
 @media screen and (max-width:600px)
 {
-  .header
-  {
+  .header{
     display: flex;
     margin-bottom: 50px;
     margin-top: 0px;
     padding-top: 12px;
     border-bottom: solid 4px red;
     box-shadow: 0px 10px 10px red;
-    background-color:#1d632f;
-    
+    background-color: #1d632f;
   }
   .header h2 {
-    font-size: 20px;
+  font-size: 20px;
+  color: whitesmoke;
+  }
+  .header h1{
+    text-align: center;
+  }
+  .p {
+    text-align: center;
+  }
+  .header-buttons button
+  {
+    background: none;
+    border: none;
+    font-size: 18px;
     color: whitesmoke;
-    }
-    .header h1{
-      text-align: center;
-    }
-    .p {
-      text-align: center;
-    }
-    .header-buttons button
-    {
-      background: none;
-      border: none;
-      font-size: 18px;
-      color: whitesmoke;
-    }
-    .ctainer{
+  }
+  .container{
     text-align: center;
   }
   .login-box{
@@ -102,6 +100,8 @@
   .header-logo{
     font-size: 12;
   }
+  
+
   input[type=email], [type=password]{
     width: 100%;
     text-align: center;

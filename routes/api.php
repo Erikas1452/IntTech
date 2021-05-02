@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmailController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,13 @@ use App\Http\Controllers\EmailController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//API
 Route::post("user/create",[UserController::class,'createUser']);
-
-Route::post('verify',[UserController::class,'verifyUser']);
-
+Route::get('verify',[UserController::class,'verifyUser']);
+Route::post('user/login',[UserController::class,'login']);
+//tests
+Route::get("getuser",[UserController::class,'getUser']);
 Route::get("data",[UserController::class,'getUser']);
 // Route::post("user/create",[UserController::class,'testRequest']);
 Route::get('/email',[EmailController::class,'sendTestEmail']);
