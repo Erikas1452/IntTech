@@ -73,7 +73,7 @@ class UserController extends Controller
             else
             {
                $data = $user->toArray();
-               return response($data, 200);
+               return response(json_encode($data['id']), 200);
             }
         }
         else return response(json_encode("Wrong password"), 401);

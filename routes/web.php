@@ -15,19 +15,3 @@ use Illuminate\Support\Facades\Route;
 
 use App\Mail\TestMail;
 use Illuminate\Http\Request;
-
-Route::get('/', function () {
-    return view('pages.login');
-})->name("home");
-
-Route::get('/register', function () {
-    return view('pages.register');
-})->name('register');
-
-Route::get('/login', function () {
-    return view('pages.login');
-})->name('login');
-
-Route::get('/notes', function (){
-    return view('pages.notes');
-})->name('notes');
