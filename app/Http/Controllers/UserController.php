@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Http\Controllers\EmailController;
+use JsonException;
 use PharIo\Manifest\Email;
 
 class UserController extends Controller
@@ -61,22 +62,31 @@ class UserController extends Controller
 
         $user = User::where('email', $email)->first();
 
-        $hash = $user->password;
-
-        if(Hash::check($password, $hash))
+        if($user === null)
         {
-            $verification_date = $user->email_verified_at;
-            if(is_null($verification_date))
-            {
-                return response(json_encode("Not verified"), 401);
-            }
-            else
-            {
-               $data = $user->toArray();
-               return response(json_encode($data['id']), 200);
-            }
+            return response(json_encode("Email is not registered"),404);
         }
-        else return response(json_encode("Wrong password"), 401);
+        else
+        {
+            $hash = $user->password;
+
+            if(Hash::check($password, $hash))
+            {
+                $verification_date = $user->email_verified_at;
+                if(is_null($verification_date))
+                {
+                    return response(json_encode("Not verified"), 401);
+                }
+                else
+                {
+                $data = $user->toArray();
+                return response(json_encode($data['id']), 200);
+                }
+            }
+            else return response(json_encode("Wrong password"), 401);
+        }
+
+
 
     }
 
